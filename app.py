@@ -24,9 +24,8 @@ def load_data():
     numeric_cols = ['lat','lon','WL(mbgl)','Block Population','Rainfall(mm/Year)']
     for col in numeric_cols:
         df[col] = pd.to_numeric(df[col], errors='coerce')
-    df.dropna(subset=numeric_cols+['Date'], inplace=True)
     df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
-    df.dropna(subset=['Date'], inplace=True)
+    df.dropna(subset=numeric_cols+['Date'], inplace=True)
     return df
 
 df = load_data()
@@ -45,23 +44,8 @@ def train_model():
 
 model, trained_columns = train_model()
 
-unique_soils = df['Predominant_Soil_Type'].unique()
-print(unique_soils)
-
 # --- Soil Visualization ---
 def create_soil_visualization(soil_type, water_depth):
-    """
-    Generates an HTML/CSS visualization of soil layers and water depth.
-    Supports mixed soils (stacked layers) and realistic colors.
-    
-    Args:
-        soil_type (str): Predominant soil type (can be multiple types separated by '&')
-        water_depth (float): Groundwater depth in meters
-
-    Returns:
-        str: HTML string for Streamlit to render
-    """
-    # --- Soil color map (realistic colors) ---
     soil_color_map = {
         'Black Cotton Soil': '#2E1B0F',
         'Deep Black Soil': '#1F0F07',
@@ -72,44 +56,27 @@ def create_soil_visualization(soil_type, water_depth):
         'Lateritic Soil': '#945438',
         'Black Cotton & Red Sandy Loam': '#5D4037'
     }
-
-    # Split mixed soils
     soil_layers = [s.strip() for s in soil_type.split('&')]
-    colors = [soil_color_map.get(s, '#8D6E63') for s in soil_layers]  # fallback color
-
-    # Calculate water table percentage
-    max_depth_viz = 30  # max depth in visualization
-    depth_pct = min(100, (water_depth / max_depth_viz) * 100)
-
-    # Generate stacked soil layers HTML
+    colors = [soil_color_map.get(s, '#8D6E63') for s in soil_layers]
+    max_depth = 30
+    depth_pct = min(100, (water_depth / max_depth) * 100)
     layer_html = ""
-    layer_height = 100 / len(colors)  # equally divided if multiple layers
+    layer_height = 100 / len(colors)
     for c in colors:
         layer_html += f'<div style="height:{layer_height}%; width:100%; background:{c}; position:relative;"></div>'
-
-    # Full HTML for visualization
     html = f"""
     <div style="font-family:sans-serif; width:250px; height:350px; border:2px solid #666; border-radius:10px; background:#E3F2FD; position:relative; overflow:hidden;">
-        <!-- Sky -->
         <div style="position:absolute; top:0; width:100%; height:50px; background:#81D4FA;"></div>
-        <!-- Grass -->
         <div style="position:absolute; top:50px; width:100%; height:20px; background:#66BB6A;"></div>
-        <!-- Soil Layers -->
-        <div style="position:absolute; top:70px; width:100%; height:calc(100% - 70px);">
-            {layer_html}
-            <!-- Water Table -->
+        <div style="position:absolute; top:70px; width:100%; height:calc(100% - 70px);">{layer_html}
             <div style="position:absolute; top:{depth_pct}%; width:100%; height:calc(100% - {depth_pct}%); background:linear-gradient(to bottom,#4FC3F7,#0288D1);"></div>
         </div>
-        <!-- Labels -->
         <div style="position:absolute; top:75px; left:5px; font-size:14px; color:#fff; text-shadow:1px 1px 2px black;">{soil_type}</div>
-        <div style="position:absolute; top:calc(70px + {depth_pct}%); right:5px; font-size:14px; color:#fff; text-shadow:1px 1px 2px black;">
-            <b>{water_depth:.2f} m</b>
-        </div>
+        <div style="position:absolute; top:calc(70px + {depth_pct}%); right:5px; font-size:14px; color:#fff; text-shadow:1px 1px 2px black;"><b>{water_depth:.2f} m</b></div>
         <div style="position:absolute; bottom:10px; left:50%; transform:translateX(-50%); font-size:14px; color:#fff; text-shadow:1px 1px 2px black;">Water Table</div>
     </div>
     """
     return html
-
 
 # --- Sidebar Filters ---
 st.sidebar.header("Filters")
@@ -161,14 +128,13 @@ if selected_state != "Select State":
                         st.metric("Rainfall", f"{kpi_data['Rainfall(mm/Year)']:.0f} mm")
                         st.metric("Population", f"{int(kpi_data['Block Population']):,}")
                         
-                        # Prediction for village
+                        # Prediction
                         input_df = pd.DataFrame([kpi_data])
                         input_encoded = pd.get_dummies(input_df, columns=['Predominant_Soil_Type'])
                         input_aligned = input_encoded.reindex(columns=trained_columns, fill_value=0)
                         pred = model.predict(input_aligned)[0]
                         st.metric("Predicted WL", f"{pred:.2f} mbgl", delta=f"{pred-kpi_data['WL(mbgl)']:.2f} m vs Actual")
                         
-                        # Custom prediction
                         st.subheader("Predict for Custom Input")
                         soil_input = st.selectbox("Soil Type", sorted(df["Predominant_Soil_Type"].unique()))
                         rainfall_input = st.number_input("Rainfall (mm)", value=1000)
