@@ -194,7 +194,7 @@ if selected_state != "Select State":
                         st.subheader("Details & Prediction")
                         st.metric("Actual WL", f"{kpi_data['WL(mbgl)']:.2f} mbgl")
                         st.metric("Soil Type", kpi_data['Predominant_Soil_Type'])
-                        st.metric("Rainfall", f"{kpi_data['Rainfall(mm/Year)']:.0f} mm")
+                        st.metric("Rainfall", kpi_data['Rainfall(mm/Year)'])
                         st.metric("Population", f"{int(kpi_data['Block Population']):,}")
 
                         # --- MODEL SELECTOR ---
@@ -289,3 +289,4 @@ if selected_state != "Select State":
                                        selection_df.to_csv(index=False),
                                        "filtered_data.csv",
                                        "text/csv")
+
