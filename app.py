@@ -10,7 +10,7 @@ st.set_page_config(
     page_icon="💧",
     layout="wide"
 )
-st.title("💧 Ground Water Level Predictor Dashboard")
+st.title(" Ground Water Level Predictor Dashboard")
 
 # --- Load and Clean Data ---
 @st.cache_data
@@ -178,3 +178,4 @@ if selected_state != "Select State":
                         st.components.v1.html(create_soil_visualization(kpi_data['Predominant_Soil_Type'],kpi_data['WL(mbgl)']), height=370)
                     
                     st.download_button("📥 Download Filtered Data", selection_df.to_csv(index=False), "filtered_data.csv", "text/csv")
+
