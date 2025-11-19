@@ -1292,7 +1292,7 @@ Karnataka,Yadgir,Wadagera,Naikal,16.7333,77.05,01-08-23,Black Cotton & Red Sandy
 Karnataka,Yadgir,Wadagera,Wadger,16.5875,77.1,01-08-23,Black Cotton & Red Sandy Loam,2.5,1174271,125000,28.05,1398.634712
 Karnataka,Yadgir,Yadgir,Mundargi,16.7667,77.2167,01-08-23,Black Cotton & Red Sandy Loam,5.6,1174271,149271,27.95,1302.708459
 Karnataka,Yadgir,Yadgir,Saidapur,16.5708,77.25,01-08-23,Black Cotton & Red Sandy Loam,6.3,1174271,149271,27.95,1290.900658
-Karnataka,Bagalkote,Badami,Badami (Rural) *,15.9167,75.6778,01-08-22,Red Sandy to Loamy Soil,4.9,1889752,183000,27.18,1206.069191
+Karnataka,Bagalkote,Badami,Badami (Rural),15.9167,75.6778,01-08-22,Red Sandy to Loamy Soil,4.9,1889752,183000,27.18,1206.069191
 Karnataka,Bagalkote,Badami,Kerur (Rural),16.0108,75.545,01-08-22,Red Sandy to Loamy Soil,2.1,1889752,183000,27.18,1373.433643
 Karnataka,Bagalkote,Badami,Lakhamapur,15.8644,75.6203,01-08-22,Red Sandy to Loamy Soil,24.7,1889752,183000,27.18,1285.60522
 Karnataka,Bagalkote,Badami,Pattadakall,15.95,75.8,01-08-22,Red Sandy to Loamy Soil,5.6,1889752,183000,27.18,1507.235944
@@ -2496,7 +2496,7 @@ Karnataka,Yadgir,Wadagera,Kurkunda,16.6478,77.0419,01-08-22,Black Cotton & Red S
 Karnataka,Yadgir,Wadagera,Naikal,16.7333,77.05,01-08-22,Black Cotton & Red Sandy Loam,0.9,1174271,125000,27.83,1464.750736
 Karnataka,Yadgir,Wadagera,Wadger,16.5875,77.1,01-08-22,Black Cotton & Red Sandy Loam,1.1,1174271,125000,27.83,1454.880425
 Karnataka,Yadgir,Yadgir,Saidapur,16.5708,77.25,01-08-22,Black Cotton & Red Sandy Loam,2.4,1174271,149271,27.73,1111.493919
-Karnataka,Bagalkote,Badami,Badami (Rural) *,15.9167,75.6778,01-08-21,Red Sandy to Loamy Soil,4.9,1889752,183000,26.93,1015.283866
+Karnataka,Bagalkote,Badami,Badami (Rural),15.9167,75.6778,01-08-21,Red Sandy to Loamy Soil,4.9,1889752,183000,26.93,1015.283866
 Karnataka,Bagalkote,Badami,Kerur (Rural),16.0108,75.545,01-08-21,Red Sandy to Loamy Soil,1.9,1889752,183000,26.93,1180.427759
 Karnataka,Bagalkote,Badami,Lakhamapur,15.8644,75.6203,01-08-21,Red Sandy to Loamy Soil,30.7,1889752,183000,26.93,1514.883868
 Karnataka,Bagalkote,Badami,Pattadakall,15.95,75.8,01-08-21,Red Sandy to Loamy Soil,6.2,1889752,183000,26.93,1048.028798
@@ -3797,7 +3797,7 @@ Karnataka,Ramanagara,Ramanagara,Jalamangala,12.82,77.2203,30-08-20,Deep Red Clay
 Karnataka,Ramanagara,Ramanagara,Kalegowdanadoddi,12.8175,77.2228,30-08-20,Deep Red Clay Soil,6.9,1082636,142636,25.2,1417.389639
 Karnataka,Ramanagara,Ramanagara,Ramanagara,12.7197,77.2756,30-08-20,Deep Red Clay Soil,13,1082636,142636,25.2,1016.571537
 Karnataka,Ramanagara,Ramanagara,S.B.Doddi,12.7342,77.2986,30-08-20,Deep Red Clay Soil,4.3,1082636,142636,25.2,1096.758201
-Karnataka,Bagalkote,Badami,Badami (Rural) *,15.9167,75.6778,11-08-19,Red Sandy to Loamy Soil,6.7,1889752,183000,27.08,1553.213086
+Karnataka,Bagalkote,Badami,Badami (Rural),15.9167,75.6778,11-08-19,Red Sandy to Loamy Soil,6.7,1889752,183000,27.08,1553.213086
 Karnataka,Bagalkote,Badami,Kulageri,15.9,75.5056,11-08-19,Red Sandy to Loamy Soil,14,1889752,183000,27.08,1303.137084
 Karnataka,Bagalkote,Badami,Lakhamapur,15.8644,75.6203,11-08-19,Red Sandy to Loamy Soil,30.7,1889752,183000,27.08,868.3162555
 Karnataka,Bagalkote,Badami,Pattadakall,15.95,75.8,11-08-19,Red Sandy to Loamy Soil,5.3,1889752,183000,27.08,1203.90136
@@ -5144,4 +5144,5 @@ Karnataka,Yadgir,Wadagera,Kurkunda,16.6478,77.0419,11-08-19,Black Cotton & Red S
 Karnataka,Yadgir,Wadagera,Naikal,16.7333,77.05,11-08-19,Black Cotton & Red Sandy Loam,5.3,1174271,125000,27.73,1165.065242
 Karnataka,Yadgir,Wadagera,Wadger,16.5875,77.1,11-08-19,Black Cotton & Red Sandy Loam,7,1174271,125000,27.73,1468.833881
 Karnataka,Yadgir,Yadgir,Saidapur,16.5708,77.25,11-08-19,Black Cotton & Red Sandy Loam,7.6,1174271,149271,27.64,1262.255065
+
 Karnataka,Yadgir,Yadgir,Saidapur,16.5708,77.25,11-08-19,Black Cotton & Red Sandy Loam,7.6,1174271,149271,27.64,1395.03084
