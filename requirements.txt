@@ -7,7 +7,7 @@ altair>=5.5.0
 pydeck>=0.9.1
 
 # Machine Learning
-xgboost==1.6.2
+xgboost==1.7.6
 
 # Utilities
 python-dateutil>=2.9.0
